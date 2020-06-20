@@ -25,7 +25,7 @@ SECRET_KEY = '43%c0k=)+j5qj01v+#^wnmruky&g-c65b8)sg_x!bd4%^jh+21'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.juancarlosbarbaran.com','130.211.219.88']
+ALLOWED_HOSTS = ['.juancarlosbarbaran.com','130.211.219.88', 'localhost']
 
 
 # Application definition
@@ -54,7 +54,9 @@ ROOT_URLCONF = 'ServidorOptica.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'database',
         'USER': 'jucar',
-        'PASSWORD': 'Marley999',
+        'PASSWORD': 'Marley919293',
         'HOST': 'localhost',
         'PORT': '',
     }

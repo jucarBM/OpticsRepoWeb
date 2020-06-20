@@ -1,0 +1,53 @@
+
+{% extends "base.html"%}
+
+{% load static%}
+
+{%block content%}
+    <section class="login">
+        <div class="container-log">
+            <h2>
+                Sign up
+            </h2>
+            <div class="information-log">
+                <form action="">
+                    <div class="info-item">
+                        <label for="first">First Name:</label>
+                        <input type="text" name="first" id="first">
+                    </div>
+                    <div class="info-item">
+                        <label for="last">Last Name:</label>
+                        <input type="text" name="last" id="last">
+                    </div>
+                    <div class="info-item">
+                        <label for="institution">Institution:</label>
+                        <input type="text" name="institution" id="last">
+                    </div>
+                    <div class="info-item">
+                        <label for="institution">Why do you need acces to database?</label>
+                        <input type="text" name="access" id="access">
+                    </div>
+                    <div class="info-item">
+                        <label for="email">E-mail:</label>
+                        <input type="email" name="email" id="email">
+                    </div>
+                    <input type="button" value="Send Request" class="signin-button">
+                </form>
+                <p>
+                    Do you have an account? <a href="../users/signin">Sign in here</a>
+                </p>
+            </div>
+        </div>
+    </section>
+{%endblock%}
+
+{%block script%}
+<script>
+
+    document.getElementById("header").classList.add("header-activate");
+    document.getElementById("footer").classList.add("footer-extra");
+
+</script>
+{% endblock %}
+
+

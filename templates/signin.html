@@ -1,0 +1,40 @@
+{% extends "base.html"%}
+
+{% load static%}
+
+{%block content%}
+<section class="login">
+    <div class="container-log">
+        <h2>
+            Sign in
+        </h2>
+        <div class="information-log">
+            <form action="">
+                <div class="info-item">
+                    <label for="email">E-mail:</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="info-item">
+                    <label for="pass">Password:</label>
+                    <input type="password" name="pass" id="pass">
+                </div>
+                <input type="button" value="Login" class="signin-button">
+            </form>
+            <p>
+                Do you need acces to database? <a href="../users/signup">Sign up here</a>
+            </p>
+        </div>
+    </div>
+</section>
+{%endblock%}
+
+{%block script%}
+<script>
+
+document.getElementById("header").classList.add("header-activate");
+document.getElementById("footer").classList.add("footer-extra");
+
+</script>
+{% endblock %}
+
+
