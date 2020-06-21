@@ -68,26 +68,28 @@
             <div class="database-container">
                 <div class="column-database column-type">
                     <h4>Instrument Type</h4>
-                    <a href="#database" class="button">All Sky Imager</a>
-                    <a href="#database" class="button">FPI</a>
+                    <a href="#database" class="button instrument-type" id="ASI-button" data-active="no">All Sky Imager</a>
+                    <a href="#database" class="button instrument-type" id="FPI-button" data-active="no">FPI</a>
                 </div>
                 <div class="column-database column-instrument">
                     <h4>Instrument</h4>
-                    <a href="#database" class="button">MRH</a>
-                    <a href="#database" class="button">A3O</a>
-                    <a href="#database" class="button">NZK</a>
+                    <a href="#database" class="button instrument-name no-visible" id="MRH-button" data-active="no">MRH</a>
+                    <a href="#database" class="button instrument-name no-visible" id="A30-button" data-active="no">A3O</a>
+                    <a href="#database" class="button instrument-name no-visible" id="NZK-button" data-active="no">NZK</a>
+                    <a href="#database" class="button instrument-name no-visible" id="ASI-Jicamarca" data-active="no">ASI Jicamarca</a>
+                    <a href="#database" class="button instrument-name no-visible" id="ASI-Boston" data-active="no">ASI Boston</a>
                 </div>
                 <div class="column-database column-date">
                     <h4>Date</h4>
-                    <form action="#">
+                    <form action="#database" id="form-database" onsubmit="visibleShowResults(); return false;">
                         <div class="label">
                             <input type="date" name="from" id="from">
                         </div>
-                        <input type="button" value="Search Data" class="search-data" id="search-data">
+                        <input type="submit" value="Search Data" class="search-data" id="search-data">
                     </form>
                 </div>
                 <div class="show-results column-results">
-                    <p id="data-available" class="data-available"></p>
+                    <p id="data-available" class="data-available no-visible">Data available! <span class='show'> <a href='data/results'>Show Results</a> </span></p>
                 </div>
             </div>
 </section>
@@ -141,17 +143,108 @@
             } else {
                 document.getElementById("header").classList.remove("header-activate");
             }
-            console.log(document.documentElement.scrollTop)
-            console.log(document.documentElement.scrollTop > 50)
         }
+
+        var showResults= document.getElementById("data-available");
+        function visibleShowResults(){
+            visibleState(showResults,true);
+        }
+
+        function visibleState(object,state){
+            if(state){
+                object.classList.remove("no-visible");
+            }
+            else {
+                object.classList.add("no-visible");
+            }
+        }
+
+        var ASI =   document.getElementById("ASI-button");
+        var FPI =   document.getElementById("FPI-button");
+
+        var MRH =   document.getElementById("MRH-button");
+        var A30 =   document.getElementById("A30-button");
+        var NZK =   document.getElementById("NZK-button");
+        var JASI =   document.getElementById("ASI-Jicamarca");
+        var BASI =   document.getElementById("ASI-Boston");
+
+        var oneActiveInstrument = false;
+        var activeInstrument = ASI
+        var oneActiveStation = false;
+        var activeStation = MRH
+
+        ASI.addEventListener("click", selectionListener);
+        FPI.addEventListener("click", selectionListener);
+
+
+        MRH.addEventListener("click", selectionListener);
+        A30.addEventListener("click", selectionListener);
+        NZK.addEventListener("click", selectionListener);
+        JASI.addEventListener("click", selectionListener);
+        BASI.addEventListener("click", selectionListener);
         
-        function dataAvailable() {
-            document.getElementById("data-available").innerHTML = "Data available <span class='show'> <a href='#database'>Show Results</a> </span>";
-        }    
+        function colorOnClicked(object, active){
+            if (object.dataset.active == "no") {
+                object.classList.remove("clicked");
+            }
+            else if (object.dataset.active == "yes") {
+                object.classList.add("clicked");
+            }
+        }
 
-        document.getElementById('search-data').addEventListener("click", dataAvailable())
+        function selectionListener(){
+            object = this;
+            if (object.classList.contains("instrument-name")){
+                values = selection(oneActiveStation, activeStation  , object);
+                oneActiveStation = values[0];
+                activeStation = values[1];                
+            }
 
+            if(object.classList.contains("instrument-type")){
+                values = selection(oneActiveInstrument, activeInstrument, object);
+                oneActiveInstrument = values[0];
+                activeInstrument = values[1];
+                if (object.id == "FPI-button") {
+                    visibleState(MRH, true);
+                    visibleState(A30, true);
+                    visibleState(NZK, true);
+                    visibleState(JASI, false);
+                    visibleState(BASI, false);
+                }
+                if (object.id == "ASI-button") {
+                    visibleState(MRH, false);
+                    visibleState(A30, false);
+                    visibleState(NZK, false);
+                    visibleState(JASI, true);
+                    visibleState(BASI, true);
+                }
+            }
+        }
+
+        function selection(oneActive, active, object) {
+
+            if (!oneActive){
+                object.dataset.active = "yes"
+                oneActive = true;
+                active = object;
+                colorOnClicked(object, active);
+            }
+            else if(object.dataset.active == "yes"){
+                object.dataset.active = "no"
+                oneActive = false;
+                active = NaN
+                colorOnClicked(object, active);
+                }
+            else{
+                    active.dataset.active = "no";
+                    colorOnClicked(active);
+                    object.dataset.active = "yes";
+                    colorOnClicked(object, active);
+                    active = object; 
+                }
+            return [oneActive, active]
+
+        }
     </script>
 
 {% endblock %}
-
