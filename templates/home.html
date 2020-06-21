@@ -63,39 +63,31 @@
             </div>
 </section>
 <section class="database" id="database">
+            <div></div>
             <h3>Database</h3>
             <div class="database-container">
                 <div class="column-database column-type">
                     <h4>Instrument Type</h4>
-                    <a href="#" class="button">All Sky Imager</a>
-                    <a href="#" class="button">FPI</a>
+                    <a href="#database" class="button">All Sky Imager</a>
+                    <a href="#database" class="button">FPI</a>
                 </div>
                 <div class="column-database column-instrument">
                     <h4>Instrument</h4>
-                    <a href="#" class="button">MRH</a>
-                    <a href="#" class="button">A3O</a>
-                    <a href="#" class="button">NZK</a>
+                    <a href="#database" class="button">MRH</a>
+                    <a href="#database" class="button">A3O</a>
+                    <a href="#database" class="button">NZK</a>
                 </div>
                 <div class="column-database column-date">
                     <h4>Date</h4>
                     <form action="#">
                         <div class="label">
-                        <label for="range">Range:</label>
-                        <input type="checkbox" name="range" id="range">
-                        </div>
-                        <div class="label">
-                            <label for="from">From:</label>
                             <input type="date" name="from" id="from">
                         </div>
-                        <div class="label">
-                            <label for="to">To:</label>
-                            <input type="date" name="to" id="to">
-                        </div>
-                        <input type="button" value="Search Data" class="search-data">
+                        <input type="button" value="Search Data" class="search-data" id="search-data">
                     </form>
                 </div>
                 <div class="show-results column-results">
-                    <p>Data available <span>Show Results</span></p>
+                    <p id="data-available" class="data-available"></p>
                 </div>
             </div>
 </section>
@@ -152,6 +144,14 @@
             console.log(document.documentElement.scrollTop)
             console.log(document.documentElement.scrollTop > 50)
         }
+        
+        function dataAvailable() {
+            document.getElementById("data-available").innerHTML = "Data available <span class='show'> <a href='#database'>Show Results</a> </span>";
+        }    
+
+        document.getElementById('search-data').addEventListener("click", dataAvailable())
+
     </script>
+
 {% endblock %}
 

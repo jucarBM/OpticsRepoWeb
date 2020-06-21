@@ -236,9 +236,40 @@ h3{
     text-align: center;
     border-bottom: rgba(1, 1, 1, 0.25) 1px solid;
     border-right: rgba(1, 1, 1, 0.25) 1px solid;
+
 }
 
+.button:hover{
+    border-bottom: rgba(1, 1, 1, 0.5) 1.5px solid;
+    border-right: rgba(1, 1, 1, 0.5) 1.5px solid;
+}
 
+.button:active{
+    background-color: gray;
+    color: #DAE1E7;
+}
+
+.data-available{
+    color: rgba(138, 140, 145,0.5);
+    display: inline;
+    font-size: 16px;
+}
+.show{
+    color: #DAE1E7;
+    border-bottom: rgba(1, 1, 1, 0.25) 1px solid;
+    border-right: rgba(1, 1, 1, 0.25) 1px solid;
+    background-color: #1B366B;
+    padding: 5px 10px 5px 10px;
+    width: 8em;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 18px;
+}
+.show a{
+    text-decoration: none;
+    color: #DAE1E7;
+}
+/* CONTACT */
 .contact{
     background-color: #1E3175; 
     color: #F1F1F3;
