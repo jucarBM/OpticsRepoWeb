@@ -141,7 +141,15 @@ h3{
 }
 .item{
     width: 22em;
+    text-decoration: none;
 }
+
+.item:hover{
+    border-bottom: rgba(1, 1, 1, 0.8) 1.5px solid;
+    border-right: rgba(1, 1, 1, 0.8) 1.5px solid;
+    border-radius: 10px;
+}
+
 .item figure{
     position: relative;
     height: 15em;
