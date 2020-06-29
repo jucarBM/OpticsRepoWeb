@@ -1,0 +1,397 @@
+{% extends "base.html"%}
+{% load static%}
+{% block content%}
+
+<section class="results">
+    <h2>
+        Welcome {{request.user.username}}! 
+    </h2>
+    <section class="database" id="database">
+        <div></div>
+        <h3>Database</h3>
+        <div class="database-container">
+            <div class="column-database column-type">
+                <h4>Instrument Type</h4>
+                <a href="#database" class="button instrument-type" id="ASI-button" data-active="no">All Sky Imager</a>
+                <a href="#database" class="button instrument-type" id="FPI-button" data-active="no">FPI</a>
+            </div>
+            <div class="column-database column-instrument">
+                <h4>Instrument</h4>
+                <a href="#database" class="button instrument-name no-visible" id="ASI-Jicamarca" data-active="no">ASI
+                    Jicamarca</a>
+                <a href="#database" class="button instrument-name no-visible" id="ASI-Boston" data-active="no">ASI
+                    Boston</a>
+                <a href="#database" class="button instrument-name no-visible" id="MRH-button" data-active="no">MRH</a>
+                <a href="#database" class="button instrument-name no-visible" id="A30-button" data-active="no">A3O</a>
+                <a href="#database" class="button instrument-name no-visible" id="NZK-button" data-active="no">NZK</a>
+
+            </div>
+            <div class="column-database column-date">
+                <h4>Date</h4>
+                <form action="#database" id="form-database" onsubmit="visibleShowResults(); return false;">
+                    <div class="label">
+                        <input type="date" name="from" id="from">
+                    </div>
+                    <input type="submit" value="Search Data" class="search-data" id="search-data">
+                </form>
+            </div>
+            <div class="show-results column-results">
+                <p id="data-available" class="data-available no-visible">Data available! <span class='show'> <a
+                            href='data/results'>Show Results</a> </span></p>
+            </div>
+        </div>
+    </section>
+    <div class="container-results">
+        <h3>
+            Information
+        </h3>
+        <p>
+            Name : Jicamarca Allsky Imager <br>
+            Latitude : -11.95845 <br>
+            Longitude : -76.8589 <br>
+            Site : JASI <br>
+            Model : ASI <br>
+            Date: 17 / 06 / 2020
+
+        </p>
+        <h3>
+            Products
+        </h3>
+        <div class="product-list">
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+            <div class="product-container">
+                <img src="{% static 'images/product.png'%}" alt="product">
+                <p>Data_x_experiment.img</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}
+
+{%block script%}
+<script>
+    document.getElementById("header").classList.add("header-activate");
+            var ASI = document.getElementById("ASI-button");
+            var FPI = document.getElementById("FPI-button");
+
+            var MRH = document.getElementById("MRH-button");
+            var A30 = document.getElementById("A30-button");
+            var NZK = document.getElementById("NZK-button");
+            var JASI = document.getElementById("ASI-Jicamarca");
+            var BASI = document.getElementById("ASI-Boston");
+
+            var oneActiveInstrument = false;
+            var activeInstrument = ASI
+            var oneActiveStation = false;
+            var activeStation = MRH
+
+            ASI.addEventListener("click", selectionListener);
+            FPI.addEventListener("click", selectionListener);
+
+
+            MRH.addEventListener("click", selectionListener);
+            A30.addEventListener("click", selectionListener);
+            NZK.addEventListener("click", selectionListener);
+            JASI.addEventListener("click", selectionListener);
+            BASI.addEventListener("click", selectionListener);
+
+            function colorOnClicked(object, active) {
+                if (object.dataset.active == "no") {
+                    object.classList.remove("clicked");
+                }
+                else if (object.dataset.active == "yes") {
+                    object.classList.add("clicked");
+                }
+            }
+
+            function selectionListener() {
+                object = this;
+                if (object.classList.contains("instrument-name")) {
+                    values = selection(oneActiveStation, activeStation, object);
+                    oneActiveStation = values[0];
+                    activeStation = values[1];
+                }
+
+                if (object.classList.contains("instrument-type")) {
+                    values = selection(oneActiveInstrument, activeInstrument, object);
+                    oneActiveInstrument = values[0];
+                    activeInstrument = values[1];
+                    if (object.id == "FPI-button") {
+                        visibleState(MRH, true);
+                        visibleState(A30, true);
+                        visibleState(NZK, true);
+                        visibleState(JASI, false);
+                        visibleState(BASI, false);
+                    }
+                    if (object.id == "ASI-button") {
+                        visibleState(MRH, false);
+                        visibleState(A30, false);
+                        visibleState(NZK, false);
+                        visibleState(JASI, true);
+                        visibleState(BASI, true);
+                    }
+                }
+            }
+
+            function selection(oneActive, active, object) {
+
+                if (!oneActive) {
+                    object.dataset.active = "yes"
+                    oneActive = true;
+                    active = object;
+                    colorOnClicked(object, active);
+                }
+                else if (object.dataset.active == "yes") {
+                    object.dataset.active = "no"
+                    oneActive = false;
+                    active = NaN
+                    colorOnClicked(object, active);
+                }
+                else {
+                    active.dataset.active = "no";
+                    colorOnClicked(active);
+                    object.dataset.active = "yes";
+                    colorOnClicked(object, active);
+                    active = object;
+                }
+                return [oneActive, active]
+
+            }
+</script>
+{%endblock%}

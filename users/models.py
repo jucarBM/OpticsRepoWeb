@@ -15,11 +15,14 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-    @receiver(post_save, sender=User)
-    def create_user_profile(self, sender, instance, created, **kwargs):
-        if created:
-            Profile.objects.create(user=instance)
+class UserRequest(models.Model):
+    """ Model of the request of a account"""
 
-    @receiver(post_save, sender=User)
-    def save_user_profile(self, sender, instance, **kwargs):
-        instance.profile.save()
+    firstName = models.TextField(("First name"))
+    lastName = models.TextField(("Last name"))
+    institution = models.TextField(("Institution"))
+    reasonToAccess = models.TextField(("Why do you need acces to database?"))
+    email = models.EmailField(("Email request user"), max_length=254)
+
+    def __str__(self):
+        return self.firstName

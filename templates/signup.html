@@ -7,34 +7,38 @@
     <section class="login">
         <div class="container-log">
             <h2>
-                Sign up
+                Request for access to database
             </h2>
             <div class="information-log">
-                <form action="/">
+                <form action="{% url 'users:requestAccess'%}" method="POST">
+                    {% csrf_token %}
                     <div class="info-item">
                         <label for="first">First Name:</label>
-                        <input type="text" name="first" id="first">
+                        <input type="text" name="first" id="first" required="tue">
                     </div>
                     <div class="info-item">
                         <label for="last">Last Name:</label>
-                        <input type="text" name="last" id="last">
+                        <input type="text" name="last" id="last" required="tue">
                     </div>
                     <div class="info-item">
                         <label for="institution">Institution:</label>
-                        <input type="text" name="institution" id="last">
+                        <input type="text" name="institution" id="institution" required="tue">
                     </div>
                     <div class="info-item">
                         <label for="institution">Why do you need acces to database?</label>
-                        <input type="text" name="access" id="access">
+                        <input type="text" name="access" id="access" required="tue">
                     </div>
                     <div class="info-item">
                         <label for="email">E-mail:</label>
-                        <input type="email" name="email" id="email">
+                        <input type="email" name="email" id="email" required="tue">
                     </div>
                     <input type="submit" value="Send Request" class="signin-button">
                 </form>
+                {% if error %}
+                <p style="color: red" ;>{{error}}</p>
+                {% endif %}
                 <p>
-                    Do you have an account? <a href="../users/signin">Sign in here</a>
+                    Do you have an account? <a href="{% url 'users:login'%}">Sign in here</a>
                 </p>
             </div>
         </div>

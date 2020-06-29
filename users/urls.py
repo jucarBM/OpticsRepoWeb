@@ -4,13 +4,18 @@ from users import views
 
 urlpatterns = [
     path(
-        route='signin',
+        route='login',
         view=views.signin,
-        name='signin'
+        name='login'
     ),
     path(
-        route='signup',
-        view=views.signup,
-        name='signup'
+        route='requestAccess',
+        view=views.requestAccess,
+        name='requestAccess'
+    ),
+    path(
+        route='logout',
+        view=views.logoutUser,
+        name='logout'
     )
 ]

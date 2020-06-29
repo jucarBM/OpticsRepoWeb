@@ -1,0 +1,27 @@
+{% extends "base.html"%}
+
+{% load static%}
+
+{%block content%}
+<section class="login">
+    <div class="container-log">
+        <h2>
+            Success!
+        </h2>
+        <div class="information-log">
+            <p>{{message}}</p>
+        </div>
+    </div>
+</section>
+{%endblock%}
+
+{%block script%}
+<script>
+
+document.getElementById("header").classList.add("header-activate");
+document.getElementById("footer").classList.add("footer-extra");
+
+</script>
+{% endblock %}
+
+

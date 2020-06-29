@@ -8,4 +8,9 @@ urlpatterns = [
         view=views.results,
         name='results'
     ),
+    path(
+        route='user',
+        view=views.userSearch,
+        name='user'
+    ),
 ]
