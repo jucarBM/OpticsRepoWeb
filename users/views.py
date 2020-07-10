@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
+from users.forms import RequestAccessUser
 
 def signin(request):
     """
@@ -37,28 +37,34 @@ def requestAccess(request):
     Función vista para la página signup del sitio.
     """
     if request.method == 'POST':
-        try:
-            userRequest = UserRequest(
-                    firstName=request.POST['first'],
-                    lastName=request.POST['last'],
-                    institution=request.POST['institution'],
-                    reasonToAccess=request.POST['access'],
-                    email=request.POST['email'],
-                )
+        form = RequestAccessUser(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            print(data)
+            try:
+                userRequest = UserRequest(
+                        firstName=data['firstName'],
+                        lastName=data['lastName'],
+                        institution=data['institution'],
+                        reasonToAccess=data['reasonToAccess'],
+                        email=data['email'],
+                    )
 
-            userRequest.save()
+                userRequest.save()
+            except:
+                return render(
+                    request,
+                    'signup.html',
+                    {'error':"Failed to send request, try again."})
 
-        except: 
-             return render(request, 'signup.html', {'error': 'Request failed, try again'})
-        return render(request, 'success.html', {'message': 'Request sended, in 24h or less we will contact you.'})
-
-
-
-
+            return render(request, 'success.html', {'message': 'Request sended, in 24h or less we will contact you.'})
+    else:
+        form = RequestAccessUser()
 
     return render(
         request,
-        'signup.html')
+        'signup.html',
+        {'form':form})
 
 @login_required
 def logoutUser(request):

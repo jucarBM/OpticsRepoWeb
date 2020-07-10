@@ -478,7 +478,7 @@ h3{
     margin: 0.5em 0 1em;
 }
 .container-results{
-    background-color: #EAEBEB;
+    background-color:#DAE1E7;
     padding: 2em 6em;
     border-radius: 5px;
     margin: 20px 0;
@@ -545,3 +545,22 @@ h3{
     width: 0;
     font-size: 0;
 }
+
+/* -Commun */
+
+.container-classic{
+    margin: 0;
+    padding: 0;
+}
+
+.center{
+    text-align: center;
+    justify-content: center;
+    justify-self: center;
+    padding-left: 30em;
+}
+
+#email::placeholder, #message::placeholder{
+    padding: 1.5em;
+}
+

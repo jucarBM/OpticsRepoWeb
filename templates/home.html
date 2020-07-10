@@ -138,7 +138,9 @@
 {%block script%}
     <script>
         window.onscroll = function () { myFunction() };
-
+        
+      
+        
         function myFunction() {
             if (document.documentElement.scrollTop > 50) {
                 document.getElementById("header").classList.add("header-activate");
@@ -170,7 +172,15 @@
         var JASI =   document.getElementById("ASI-Jicamarca");
         var BASI =   document.getElementById("ASI-Boston");
 
-        var oneActiveInstrument = false;
+
+        visibleState(JASI, true);
+        visibleState(BASI, true); 
+        ASI.dataset.active = "yes";
+
+        var oneActiveInstrument = true;
+
+        colorOnClicked(ASI, oneActiveInstrument)
+
         var activeInstrument = ASI
         var oneActiveStation = false;
         var activeStation = MRH

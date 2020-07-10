@@ -14,11 +14,11 @@
                     {% csrf_token %}
                     <div class="info-item">
                         <label for="first">First Name:</label>
-                        <input type="text" name="first" id="first" required="tue">
+                        <input type="text" name="firstName" id="firstName" required="tue">
                     </div>
                     <div class="info-item">
                         <label for="last">Last Name:</label>
-                        <input type="text" name="last" id="last" required="tue">
+                        <input type="text" name="lastName" id="lastName" required="tue">
                     </div>
                     <div class="info-item">
                         <label for="institution">Institution:</label>
@@ -26,7 +26,7 @@
                     </div>
                     <div class="info-item">
                         <label for="institution">Why do you need acces to database?</label>
-                        <input type="text" name="access" id="access" required="tue">
+                        <input type="text" name="reasonToAccess" id="reasonToAccess" required="tue">
                     </div>
                     <div class="info-item">
                         <label for="email">E-mail:</label>
@@ -35,7 +35,11 @@
                     <input type="submit" value="Send Request" class="signin-button">
                 </form>
                 {% if error %}
-                <p style="color: red" ;>{{error}}</p>
+                    <p style="color: red" ;>{{error}}</p>
+                {% endif %}
+
+                {% if form.errors %}
+                    <p style="color: red" ;>{{form.errors}}</p>
                 {% endif %}
                 <p>
                     Do you have an account? <a href="{% url 'users:login'%}">Sign in here</a>
