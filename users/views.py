@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 from users.forms import RequestAccessUser
+from django.views.generic import CreateView
 
 def signin(request):
     """
@@ -30,7 +31,6 @@ def signin(request):
         return render(
                 request,
                 'signin.html')
-
 
 def requestAccess(request):
     """
@@ -57,7 +57,7 @@ def requestAccess(request):
                     'signup.html',
                     {'error':"Failed to send request, try again."})
 
-            return render(request, 'success.html', {'message': 'Request sended, in 24h or less we will contact you.'})
+            return render(request, 'success.html', {'message': 'Request sent, in 24h or less we will contact you.'})
     else:
         form = RequestAccessUser()
 

@@ -5,12 +5,12 @@ from data import views
 urlpatterns = [
     path(
         route='results',
-        view=views.results,
+        view=views.ResultsView.as_view(),
         name='results'
     ),
     path(
         route='user',
-        view=views.userSearch,
+        view=views.UserHomeView.as_view(),
         name='user'
     ),
 ]

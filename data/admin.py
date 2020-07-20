@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Models
 from django.contrib.auth.models import User
-from data.models import Station, Instrument, Experiment, InstrumentModel, InstrumentCharacteristic, Product, Setting
+from data.models import Station, Instrument, Experiment, InstrumentModel, InstrumentCharacteristicName, Product, Setting, InstrumentCharacteristicValue
 
 
 @admin.register(Station)
@@ -25,11 +25,16 @@ class InstrumentModelAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(InstrumentCharacteristic)
+@admin.register(InstrumentCharacteristicName)
 class InstrumentCharacteristicAdmin(admin.ModelAdmin):
 
     pass
 
+
+@admin.register(InstrumentCharacteristicValue)
+class InstrumentCharacteristicAdmin(admin.ModelAdmin):
+
+    pass
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):

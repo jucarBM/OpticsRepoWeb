@@ -138,6 +138,15 @@ h3{
     color: #1B366B;
     font-weight: bolder;
     font-size: 30px;
+    text-decoration: none;
+    display: inline;
+}
+
+.instruments span a{
+    text-decoration: none;
+    color: #1B366B;
+    cursor: pointer;
+
 }
 .item{
     width: 22em;

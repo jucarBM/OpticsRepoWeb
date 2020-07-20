@@ -31,36 +31,20 @@
 <section class="instruments" id="instruments">
             <h3>Instruments</h3>
             <div class="intruments-container">
-                <span><</span>
-                    <a href="data/results" class="item">
+                <span><a class="changer" onclick="preView()"><</a></span>
+
+            {% for instrument in instruments  %}
+                    <a href="data/results" class="item" >
                         <figure>
-                        <img src="{% static 'images/instrumentJicamarca.jpg' %}" alt="instruments">
-                        <span>ASI - Jicamarca</span>
+                            <img src="{{instrument.instrumentImage.url}}" alt="instruments">
+                            <span>{{instrument.instrumentName}}</span>
                         </figure>
                         <div class="instrument-footer">
-                            <p> It has a fixed lens to measure the OH bands from the
-                            mesosphere and is used to detect gravity wave activity.</p>
+                            <p> {{instrument.description}}</p>
                         </div>
                     </a>
-                    <a href="data/results" class="item">
-                        <figure>
-                        <img src="{% static 'images/instrumentNazca.jpg' %}" alt="instruments">
-                        <span>FPI - MRH</span>
-                        </figure>
-                        <div class="instrument-footer">
-                            <p> Located in Merihill, Lima. It is the nearest instrument to Jicamarca Radio Observatory.</p>
-                        </div>
-                    </a>
-                    <a href="data/results" class="item">
-                        <figure>
-                        <img src="{% static 'images/instrumentArequipa.jpg' %}" alt="instruments">
-                        <span>FPI - A30</span>
-                        </figure>
-                        <div class="instrument-footer">
-                            <p>First FPI installed in Peru. Located in Arequipa, it is one of the most important instrument of the region.</p>
-                        </div>
-                    </a>
-                <span>></span>
+            {% endfor %}
+                <span><a class="changer" onclick="postView()">></a></span>
             </div>
 </section>
 <section class="database" id="database">
@@ -69,17 +53,15 @@
             <div class="database-container">
                 <div class="column-database column-type">
                     <h4>Instrument Type</h4>
-                    <a href="#database" class="button instrument-type" id="ASI-button" data-active="no">All Sky Imager</a>
-                    <a href="#database" class="button instrument-type" id="FPI-button" data-active="no">FPI</a>
+                    {% for instrumentType in instrumentTypes %}
+                        <a href="#database" class="button instrument-type">{{instrumentType}}</a>
+                    {% endfor %}
                 </div>
                 <div class="column-database column-instrument">
                     <h4>Instrument</h4>
-                    <a href="#database" class="button instrument-name no-visible" id="ASI-Jicamarca" data-active="no">ASI Jicamarca</a>
-                    <a href="#database" class="button instrument-name no-visible" id="ASI-Boston" data-active="no">ASI Boston</a>
-                    <a href="#database" class="button instrument-name no-visible" id="MRH-button" data-active="no">MRH</a>
-                    <a href="#database" class="button instrument-name no-visible" id="A30-button" data-active="no">A3O</a>
-                    <a href="#database" class="button instrument-name no-visible" id="NZK-button" data-active="no">NZK</a>
-
+                    {% for instrumentASI in instrumentsASI %}
+                        <a href="#database" class="button instrument-type">{{instrumentASI}}</a>
+                    {% endfor %}
                 </div>
                 <div class="column-database column-date">
                     <h4>Date</h4>
@@ -139,8 +121,6 @@
     <script>
         window.onscroll = function () { myFunction() };
         
-      
-        
         function myFunction() {
             if (document.documentElement.scrollTop > 50) {
                 document.getElementById("header").classList.add("header-activate");
@@ -149,114 +129,45 @@
             }
         }
 
-        var showResults= document.getElementById("data-available");
-        function visibleShowResults(){
-            visibleState(showResults,true);
+        var showResults = document.getElementById("data-available");
+        function visibleShowResults() {
+                visibleState(showResults, true);
         }
 
-        function visibleState(object,state){
-            if(state){
-                object.classList.remove("no-visible");
-            }
-            else {
-                object.classList.add("no-visible");
-            }
-        }
-
-        var ASI =   document.getElementById("ASI-button");
-        var FPI =   document.getElementById("FPI-button");
-
-        var MRH =   document.getElementById("MRH-button");
-        var A30 =   document.getElementById("A30-button");
-        var NZK =   document.getElementById("NZK-button");
-        var JASI =   document.getElementById("ASI-Jicamarca");
-        var BASI =   document.getElementById("ASI-Boston");
-
-
-        visibleState(JASI, true);
-        visibleState(BASI, true); 
-        ASI.dataset.active = "yes";
-
-        var oneActiveInstrument = true;
-
-        colorOnClicked(ASI, oneActiveInstrument)
-
-        var activeInstrument = ASI
-        var oneActiveStation = false;
-        var activeStation = MRH
-
-        ASI.addEventListener("click", selectionListener);
-        FPI.addEventListener("click", selectionListener);
-
-
-        MRH.addEventListener("click", selectionListener);
-        A30.addEventListener("click", selectionListener);
-        NZK.addEventListener("click", selectionListener);
-        JASI.addEventListener("click", selectionListener);
-        BASI.addEventListener("click", selectionListener);
-        
-        function colorOnClicked(object, active){
-            if (object.dataset.active == "no") {
-                object.classList.remove("clicked");
-            }
-            else if (object.dataset.active == "yes") {
-                object.classList.add("clicked");
-            }
-        }
-
-        function selectionListener(){
-            object = this;
-            if (object.classList.contains("instrument-name")){
-                values = selection(oneActiveStation, activeStation  , object);
-                oneActiveStation = values[0];
-                activeStation = values[1];                
-            }
-
-            if(object.classList.contains("instrument-type")){
-                values = selection(oneActiveInstrument, activeInstrument, object);
-                oneActiveInstrument = values[0];
-                activeInstrument = values[1];
-                if (object.id == "FPI-button") {
-                    visibleState(MRH, true);
-                    visibleState(A30, true);
-                    visibleState(NZK, true);
-                    visibleState(JASI, false);
-                    visibleState(BASI, false);
+        function visibleState(object, state) {
+                if (state) {
+                    object.classList.remove("no-visible");
                 }
-                if (object.id == "ASI-button") {
-                    visibleState(MRH, false);
-                    visibleState(A30, false);
-                    visibleState(NZK, false);
-                    visibleState(JASI, true);
-                    visibleState(BASI, true);
+                else {
+                    object.classList.add("no-visible");
                 }
-            }
         }
 
-        function selection(oneActive, active, object) {
-
-            if (!oneActive){
-                object.dataset.active = "yes"
-                oneActive = true;
-                active = object;
-                colorOnClicked(object, active);
-            }
-            else if(object.dataset.active == "yes"){
-                object.dataset.active = "no"
-                oneActive = false;
-                active = NaN
-                colorOnClicked(object, active);
-                }
-            else{
-                    active.dataset.active = "no";
-                    colorOnClicked(active);
-                    object.dataset.active = "yes";
-                    colorOnClicked(object, active);
-                    active = object; 
-                }
-            return [oneActive, active]
-
+        items = document.getElementsByClassName("item");
+        nPositions = items.length - 2;
+        actualPosition = 1;
+        if(items.length > 3){
+            for (i = 3; i < items.length ; i++)
+            items[i].style.display = "none";
         }
+
+        function preView() {
+            if(actualPosition != 1){
+                actualPosition = actualPosition - 1;
+            }
+            items[actualPosition + 2].style.display = "none";
+            items[actualPosition - 1].style.display = "block";
+        }
+
+        function postView(){
+            if (actualPosition < nPositions) {
+                actualPosition = actualPosition + 1;
+            }
+            items[actualPosition - 2].style.display = "none";
+            items[actualPosition + 1].style.display = "block";
+        }
+
+
     </script>
 
 {% endblock %}
