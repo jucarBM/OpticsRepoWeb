@@ -143,11 +143,12 @@
                 }
         }
 
+        var n = 1   ;
         items = document.getElementsByClassName("item");
-        nPositions = items.length - 2;
+        nPositions = items.length - n +1;
         actualPosition = 1;
-        if(items.length > 3){
-            for (i = 3; i < items.length ; i++)
+        if(items.length > n){
+            for (i = n; i < items.length ; i++)
             items[i].style.display = "none";
         }
 

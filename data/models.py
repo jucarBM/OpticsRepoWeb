@@ -4,7 +4,9 @@ from django.db import models
 
 
 class Station(models.Model):
-
+    """Modelo de estación optica, ejemplo: MRH, NZK
+       Es un modelo base que tiene relación uno a muchos con otros modelos.
+    """
     stationName = models.CharField(("Station Name"), max_length=50)
     long = models.CharField(("Longitude"), max_length=50)
     lat = models.CharField(("Latitude"), max_length=50)
@@ -94,3 +96,16 @@ class Setting(models.Model):
 
     def __str__(self):
         return self.settingsName
+
+class Campaing(models.Model):
+
+    name = models.CharField(("Campaing Name"), max_length=50)
+    description = models.CharField(("Description of campaing"), max_length=50)
+    dateStart = models.DateTimeField(("Date Start"), auto_now=False, auto_now_add=False)
+    dateEnd = models.DateTimeField(("Date End"), auto_now=False, auto_now_add=False)
+
+    def __str__(self):
+        return self.name
+
+
+

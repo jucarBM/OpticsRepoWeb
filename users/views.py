@@ -35,6 +35,9 @@ def signin(request):
 def requestAccess(request):
     """
     Función vista para la página signup del sitio.
+    Así mismo permite la creación  de un request de usario en la base de datos
+    utilizando el método POST. Se utiliza el método is_valid de modelo de forms
+    para facilitar esta creación.
     """
     if request.method == 'POST':
         form = RequestAccessUser(request.POST)
