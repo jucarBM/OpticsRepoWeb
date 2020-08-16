@@ -14,9 +14,17 @@
 
 <body id="body">
     <header class="header" id="header">
-        <figure class="logo">
-            <img src="{% static 'images/IGP.png' %}" alt="igp">
-        </figure>
+        <div class="header-burguer">
+            <figure class="logo">
+                <img src="{% static 'images/IGP.png' %}" alt="igp">
+            </figure>
+            <figure class="burguer-figure logo">
+                    <img class="burguer" src="{% static 'images/menu.svg' %}" alt="burguer">
+            </figure>
+            <figure class="close-logo logo">
+                <img class="close" src="{% static 'images/close.png' %}" alt="close">
+            </figure>
+        </div>
         <nav class="menu">
             <ol>
                 <li class="link">

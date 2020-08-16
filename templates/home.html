@@ -143,32 +143,67 @@
                 }
         }
 
-        var n = 1   ;
-        items = document.getElementsByClassName("item");
-        nPositions = items.length - n +1;
+        // var n = 3   ;
+        n = 0;
         actualPosition = 1;
-        if(items.length > n){
-            for (i = n; i < items.length ; i++)
-            items[i].style.display = "none";
+        items = document.getElementsByClassName("item");
+        nPositions = items.length - n + 1;
+        
+        function itemsDraw(n){
+            nPositions = items.length - n + 1;
+            for (i = 1; i <= items.length; i++) {
+              //  console.log(i)
+                if(actualPosition<=i && i<=actualPosition+n-1){
+                    items[i-1].style.display = "block";
+                }
+                else{
+                    items[i-1].style.display = "none";
+                }
+            }
         }
 
+        function sizeWIndows23(x) {
+                if (x.matches) { // If media query matches
+                    console.log("MENOR A 980");
+                    n = 2;
+                    itemsDraw(2)
+                } else {
+                    console.log("mayor a 980");
+                    n = 3;
+                    itemsDraw(3)      
+                }
+            }
+            function sizeWIndows12(y) {
+                if (y.matches) { // If media query matches
+                    console.log("mmenor a 630");
+                    n = 1;
+                    itemsDraw(1)
+                }
+            }
+
+        var x = window.matchMedia("(max-width: 970px)")
+        sizeWIndows23(x) 
+        x.addListener(sizeWIndows23) 
+
+        var y = window.matchMedia("(max-width: 630px)")
+        sizeWIndows12(y) 
+        y.addListener(sizeWIndows12) 
+       
+
+        
         function preView() {
-            if(actualPosition != 1){
+            if (actualPosition != 1) {
                 actualPosition = actualPosition - 1;
+                itemsDraw(n)
             }
-            items[actualPosition + 2].style.display = "none";
-            items[actualPosition - 1].style.display = "block";
         }
-
-        function postView(){
-            if (actualPosition < nPositions) {
+        
+        function postView() {
+            if (actualPosition != nPositions) {
                 actualPosition = actualPosition + 1;
+                itemsDraw(n)
             }
-            items[actualPosition - 2].style.display = "none";
-            items[actualPosition + 1].style.display = "block";
         }
-
-
     </script>
 
 {% endblock %}

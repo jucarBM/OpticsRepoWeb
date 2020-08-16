@@ -154,6 +154,7 @@ h3{
     width: 22em;
     height: 22em;
     text-decoration: none;
+    display: none;
 }
 
 .item:hover{
@@ -583,10 +584,13 @@ h3{
         text-decoration: none;
         font-size: 15px;
     }
-
     .instrument-footer {
         height: 4em;
     }
+    .product-list {
+        grid-template-columns: repeat(4,1fr);
+    }
+
 }
 
 
@@ -602,6 +606,9 @@ h3{
     .intruments-container{
         padding-left: 20px;
         padding-right: 20px;
+    }
+    .product-container p{
+        font-size: 12px;
     }
 }
 
@@ -710,7 +717,17 @@ h3{
     .img-fb{
         height: 40px !important;
     }
-
+    .login {
+        grid-template-columns: 15% 70% 15%;
+        grid-template-areas: ". content .";
+    }
+    .container-log{
+        margin: 50px 0;
+    }
+    .container-results {
+        padding: 2em 3em;
+    }
+}
 @media screen and (max-width: 900px){
 
     h1{
@@ -737,9 +754,12 @@ h3{
     .show{
         font-size: 0.8em;
     }
+    .product-list {
+        grid-template-columns: repeat(3,1fr);
+    }
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px){
+@media screen  and (max-width: 768px){
     .item{
         width: 20em;
         height: 24em;
@@ -769,6 +789,30 @@ h3{
     }
     .database {
         padding: 0px 30px;
+    }
+
+    .login {
+        grid-template-columns: 5% 90% 5%;
+        grid-template-areas: ". content .";
+    }
+    .information-log {
+        font-size: 20px;
+    }
+    .results {
+        margin: 2em 4em;
+        color: #1B366B;
+    }
+    .container-results {
+        padding: 1em 1.5em;
+    }
+    .container-results p{
+        font-size: 15px;
+    }
+    .product-container p{
+        font-size: 11px;
+    }
+    .results h2{
+        margin-bottom: 20px;
     }
 }
 
@@ -816,6 +860,27 @@ h3{
     .footer{
         font-size: 8px;
     }
+    .item{
+        width: 20em;
+        height: 24em;
+        font-size: 10px;
+    }
+    .intruments-container{
+        width: 70%;
+        margin-left: 50px;
+    }
+    .container-log{
+        padding: 20px 40px;
+    }
+    .information-log {
+        font-size: 16px;
+    }
+    .product-list {
+        grid-template-columns: repeat(2,1fr);
+    }
+    .results h3{
+        font-size: 25px;
+    }
 }
 
 @media screen and (max-width: 480px){
@@ -823,10 +888,10 @@ h3{
         display: none;
     }
     h1{
-        font-size: 0.6em;
+        font-size: 0.5em;
     }
     .hero-title h2 {
-        font-size: 0.4em;
+        font-size: 0.3em;
         padding-left: 10px;
         margin-top: 10px;
     }
@@ -870,10 +935,7 @@ h3{
     .column-database input {
         font-size: 16px;
     }
-    .item{
-        width: 85%;
-        height: 25em;
-    }
+
     .instrument-footer {
         height: 25%;
     }
@@ -901,22 +963,92 @@ h3{
     .sitemap {
         display: none;
     }
+    .intruments-container{
+        width: 90%;
+        margin-left: 5%;
+        padding-top: 5%;
+    }
+    .info-item label{
+        text-align: left;
+    }
+
+    .info-item {
+        grid-template-columns: repeat(1,1fr);
+        grid-auto-flow: row;
+        margin: 0 5em;
+        margin: 20px 0;
+    }
+    .hero-title {
+        top: 15%;
+        left: 15%;
+    }
+
+
+    .header {
+        display: block;
+        background: #1E3175;
+        margin: 0;
+        margin-left: 60%;
+        padding: 20px 20px;
+        text-align: center;
+        height: 50%;
+
+    }
+    .header-activate{
+        position: absolute;
+    }
+    .header-burguer{
+        align-content: center;
+    }
+    .logo{
+        padding: 5px 10px;
+        padding-bottom: 25px;
+    }
+    .burguer{
+        filter: invert(97%) sepia(2%) saturate(1771%) hue-rotate(178deg) brightness(92%) contrast(96%); 
+    }
+    .burguer-figure{
+        display: none;
+    }
+    .close-logo{
+        filter: invert(97%) sepia(2%) saturate(1771%) hue-rotate(178deg) brightness(92%) contrast(96%);
+        width: 20px;
+        height: 20px;
+    }
+    .menu{
+    }
+    .menu nav, .menu ol, .menu li{
+        display: block;
+    }
+    .menu li{
+        padding-bottom: 5px;
+        font-size: 20px;
+    }
+    .menu strong{
+        display: none;
+    }
+
 }
 
 @media screen and (max-width: 430px){
     .mailing form {
         margin-left: 20px;
     }
+    .product-list {
+        grid-template-columns: repeat(1,1fr);
+    }
 }
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 390px){
+    .intruments-container{
+        width: 80%;
+        margin-left: 8%;
+        padding-top: 5%;
+    }
     .about-image img {
         display: none;
     }
-    .menu{
-        display: none;
-        
-    }
+
     h1{
         font-size: 0.4em;
     }
@@ -937,8 +1069,8 @@ h3{
         padding-left: 15px;
     }
     .item{
-        width: 90%;
-        height: 14em;
+        width: 16em;
+        height: 12em;
     }
     .instrument-footer{
         display: none;
@@ -955,5 +1087,28 @@ h3{
     .hero-title {
         top: 8%;
         left: 5%;
+    }
+    .info-item input{
+        width: 90%;
+    }
+    .results {
+        margin: 2em 3em;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .intruments-container{
+        font-size: 1opx;
+        width: 80%;
+        margin-left: 8%;
+        padding-top: 5%;
+    }
+    .item{
+        width: 15em;
+        height: 12em;
+    }
+    .item figure span {
+        padding: 5px 10px;
+        left: 3em;
     }
 }
