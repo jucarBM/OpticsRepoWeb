@@ -190,7 +190,6 @@
         y.addListener(sizeWIndows12) 
        
 
-        
         function preView() {
             if (actualPosition != 1) {
                 actualPosition = actualPosition - 1;
@@ -203,6 +202,18 @@
                 actualPosition = actualPosition + 1;
                 itemsDraw(n)
             }
+        }
+
+        inactiveBur = document.getElementsByClassName("inactive-burguer");
+        activeBur = document.getElementsByClassName("active-burguer");
+
+        function openBurguer(){
+            inactiveBur[0].style.display = "none"
+            activeBur[0].style.display = "inline"
+        }
+        function closeBurguer(){
+            inactiveBur[0].style.display = "inline"
+            activeBur[0].style.display = "none"
         }
     </script>
 

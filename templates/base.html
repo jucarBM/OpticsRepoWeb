@@ -13,16 +13,15 @@
 </head>
 
 <body id="body">
-    <header class="header" id="header">
-        <div class="header-burguer">
+    <header class="header active-burguer" id="header">
+        <div class="header-burguer-active">
             <figure class="logo">
                 <img src="{% static 'images/IGP.png' %}" alt="igp">
             </figure>
-            <figure class="burguer-figure logo">
-                    <img class="burguer" src="{% static 'images/menu.svg' %}" alt="burguer">
-            </figure>
             <figure class="close-logo logo">
-                <img class="close" src="{% static 'images/close.png' %}" alt="close">
+                <a id="close-burguer" class="close-burguer" onclick="closeBurguer()">
+                    <img class="close" src="{% static 'images/close.png' %}" alt="close">
+                </a>
             </figure>
         </div>
         <nav class="menu">
@@ -54,6 +53,15 @@
                 {%endif%}
 
         </nav>
+    </header>
+    <header class="header inactive-burguer" id="header">
+        <div class="header-burguer-inactive">
+            <figure class="burguer-figure logo">
+                <a class="open-burguer" id="open-burguer" onclick="openBurguer()">
+                    <img class="burguer" src="{% static 'images/menu.svg' %}" alt="burguer">    
+                </a>
+            </figure>
+        </div>
     </header>
     {% block content%}
     {% endblock %}

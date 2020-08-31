@@ -19,10 +19,10 @@ class HomePageView(TemplateView):
         context['instrumentsFPI'] = instrumentsFPI
         return context
 
-# def home(request):
-#     """
-#     Función vista para la página inicio del sitio.
-#     """
-#     return render(
-#         request,
-#         'home.html')
+def InstrumentPrueba(request):
+    """
+    Función vista para la página inicio del sitio.
+    """
+    return render(
+        request,
+        'instruments.html')

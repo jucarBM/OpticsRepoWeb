@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include(('users.urls', 'users'), namespace='users')),
     path('data/', include(('data.urls', 'data'), namespace='data')),
-    path('', views.HomePageView.as_view(), name='home')
+    path('', views.HomePageView.as_view(), name='home'),
+    path('instrumentPrueba/', views.InstrumentPrueba,name='intrumentPrueba')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
